@@ -1,6 +1,15 @@
 # Virus Total Automation
 Program designed to leverage Virus Total to conduct semi-automated OSINT and hash conversions of know files on VT.
 
+## Important Information
+Requirements:
+  - Python 3
+  - Install Python modules:
+    - requests
+    - json
+    - csv
+    - time
+
 ## TODO
 - Menu
 - Properties file
