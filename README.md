@@ -1,14 +1,18 @@
-# Virus Total Automation
-Program designed to leverage Virus Total to conduct semi-automated OSINT and hash conversions of know files on VT.
+# VirusTotal Automated File Hash Conversion
+The program is designed to leverage VirusTotal to convert file hashes for files known to VT.
 
 ## Important Information
 Requirements:
   - Python 3
-  - Install Python modules:
+  - Install the following Python modules:
     - requests
+      - To install: `pip install requests`
     - json
+      - Preinstalled module with Python 3, no need to install with pip
     - csv
+      - Preinstalled module with Python 3, no need to install with pip
     - time
+      - Preinstalled module with Python 3, no need to install with pip
 
 ## TODO
 - Menu
@@ -16,16 +20,17 @@ Requirements:
 - Add batch file reputation lookup
 
 ## Setup
-### imports.csv
-This CSV contains the file hashes to convert. The first row contains the header and all additional rows contain either the MD5 or SHA256 (or a mix) to use as a resource to lookup. Currently additional columns are not used.
-### exports.csv
-This CSV will contain the resource, MD5, and SHA256 conversions after the program has ran successfully. This file is cleaned before every run.
-### apikeys.csv
-This CSV contains is where your free or premium API key should be inserted. One API key per row and no column header. This program can use multiple API keys and automatically rotate them when performing conversations. The program will also automatically select the idle time between requests based on the number of API keys within the file.
-### main.py
-This is currently the home of all functions of the system. The program will be broken up eventually.
+### Create "imports.csv"
+Create an empty CSV called `import.csv`. This CSV will contain all of the file hashes that need to be converted. In the first row and column, enter a name/header for the column, such as `File Hashes`. Below the header, populate the MD5, SHA256 or both hashes that need to be converted.
+
+### Create exports.csv
+Create an empty CSV called `exports.csv`. No need to populate this file with anything, that will be done by the program. This CSV will contain the resource, MD5, and SHA256 conversions after the program have run successfully. This file is cleaned automatically before every run.
+
+### Create apikeys.csv
+Create an empty CSV called `apikeys.csv`. Do not enter a column name/header in this file, it is not needed. Populate the CSV with API keys from VirusTotal. This program needs at least 2 API keys to function properly Each API key is limited to 4 queries per minute. Adding an API key adds 4 available queries per minute. The program will automatically calculate the query speed.
 
 ## Running the program
   1. Populate the `imports.csv` with the MD5 and SHA256 files you would like to convert. Make sure that the column has a header, such as "Hashes".
-  2. Ensure that your API key(s) is populated in the 'apikeys.csv' file with no column header.
-  3. Run `main.py`
+  2. Ensure that your API keys are populated in the 'apikeys.csv' file with no column header.
+  3. Ensure that the empty file `exports.csv` has been created.
+  4. Run `main.py`
