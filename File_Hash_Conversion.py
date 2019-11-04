@@ -77,6 +77,9 @@ with open("import.csv") as resource_csv:
                 print("SHA256: "+data["sha256"])
             else:
                 print(f"{row[0]} is currently not on record.")
+                with open("export.csv", "a") as export_csv:
+                    export_write = csv.writer(export_csv, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+                    export_csv.write(row[0]+","+"No Record"+","+"No Record"+"\n")
             print("\n")
             # Updating line counter
             line_count += 1
