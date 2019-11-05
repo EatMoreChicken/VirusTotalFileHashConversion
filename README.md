@@ -24,8 +24,11 @@ Create an empty CSV called `exports.csv`. No need to populate this file with any
 ### Create apikeys.csv
 Create an empty CSV called `apikeys.csv`. Do not enter a column name/header in this file, it is not needed. Populate the CSV with API keys from VirusTotal. This program needs at least 2 API keys to function properly Each API key is limited to 4 queries per minute. Adding additional API keys adds 4 available queries per minute to each key. The program will automatically calculate the query speed.
 
+### Location of CSV
+All three CSV files need to be stored in the folder which `main.py` located. 
+
 ## Running the program
   1. Populate the `imports.csv` with the MD5 and SHA256 files you would like to convert. Make sure that the column has a header, such as "Hashes".
-  2. Ensure that your API keys are populated in the 'apikeys.csv' file with no column header.
+  2. Ensure that your API keys are populated in the `apikeys.csv` file with no column header.
   3. Ensure that the empty file `exports.csv` has been created.
   4. Run `main.py`
